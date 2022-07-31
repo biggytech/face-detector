@@ -2,9 +2,13 @@
   "name": "face-detector",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./dist/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx tsc",
+    "ts:watch": "npx tsc --watch",
+    "watch": "nodemon ./dist/server.js",
+    "run": "node ./dist/server.js"
   },
   "author": "",
   "license": "ISC",
@@ -13,6 +17,16 @@
     "canvas": "^2.9.3",
     "express": "^4.18.1",
     "face-api.js": "^0.22.2",
-    "nodemon": "^2.0.19"
+    "nodemon": "^2.0.19",
+    "typescript": "^4.7.4"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.31.0",
+    "@typescript-eslint/parser": "^5.31.0",
+    "eslint": "^8.20.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "prettier": "^2.7.1"
   }
 }
