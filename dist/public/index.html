@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Face Detector</title>
+	<link rel="stylesheet" href="./style.css">
+</head>
+ 
+<body>
+	<main class="main">
+		<header>
+			<h1 class="title">Face Detector</h1>
+		</header>
+
+		<div id="container" class="container">
+			<div class="innerContainer">
+				<video autoplay="true" id="videoElement" class="videoElement" onloadedmetadata="onPlay(this)"></video>
+				<div class="loader"></div>
+				<canvas id="overlay" class="overlay" />
+			</div>
+		</div>
+		
+		<footer class="footer">
+			This software uses <a href="https://github.com/justadudewhohacks/face-api.js" target="_blank">face-api.js</a> library by <i>Vincent Mühler</i>
+		</footer>
+	</main>
+
+	<script src="./face-api.js"></script>
+	<script src="./script.js"></script>
+</body>
+</html>
