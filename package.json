@@ -4,11 +4,12 @@
   "description": "",
   "main": "./dist/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npx tsc",
-    "ts:watch": "npx tsc --watch",
-    "watch": "nodemon ./dist/server.js",
-    "run": "node ./dist/server.js"
+    "be:watch": "concurrently --kill-others \"npx tsc --watch --project ./src/server/tsconfig.json\" \"nodemon ./dist/server.js\"",
+    "be:build": "npx tsc --project ./src/server/tsconfig.json",
+    "be:run": "node ./dist/server.js",
+    "fe:watch": "npx webpack --watch",
+    "fe:build": "npx webpack",
+    "start": "npm run fe:build && npm run be:build && npm run start"
   },
   "author": "",
   "license": "ISC",
@@ -17,16 +18,20 @@
     "canvas": "^2.9.3",
     "express": "^4.18.1",
     "face-api.js": "^0.22.2",
-    "nodemon": "^2.0.19",
-    "typescript": "^4.7.4"
+    "nodemon": "^2.0.19"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.31.0",
     "@typescript-eslint/parser": "^5.31.0",
+    "concurrently": "^7.3.0",
     "eslint": "^8.20.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.26.0",
-    "prettier": "^2.7.1"
+    "prettier": "^2.7.1",
+    "ts-loader": "^9.3.1",
+    "typescript": "^4.7.4",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
   }
 }

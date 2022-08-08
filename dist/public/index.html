@@ -14,9 +14,9 @@
 
 		<div id="container" class="container">
 			<div class="innerContainer">
-				<video autoplay="true" id="videoElement" class="videoElement" onloadedmetadata="onPlay(this)"></video>
-				<div class="loader"></div>
-				<canvas id="overlay" class="overlay" />
+				<video autoplay="true" class="video js-video"></video>
+				<div class="loader js-loader"></div>
+				<canvas class="overlay js-overlay" />
 			</div>
 		</div>
 		
@@ -24,8 +24,7 @@
 			This software uses <a href="https://github.com/justadudewhohacks/face-api.js" target="_blank">face-api.js</a> library by <i>Vincent Mühler</i>
 		</footer>
 	</main>
-
-	<script src="./face-api.js"></script>
+	
 	<script src="./script.js"></script>
 </body>
 </html>

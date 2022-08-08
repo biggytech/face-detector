@@ -2,3 +2,7 @@ out
 node_modules
 .DS_Store
 images
+dist
+!dist/public/lib
+!dist/public/index.html
+!dist/public/style.css
