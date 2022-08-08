@@ -1,7 +1,7 @@
 # Face Detector
 
 ## Notice
-This software uses [face-api.js](https://github.com/justadudewhohacks/face-api.js) library `Copyright (c) 2018 Vincent Mühler` (MIT License).
+This software uses [face-api.js](https://github.com/justadudewhohacks/face-api.js) library by Vincent Mühler.
 
 ## Setting up the environment
 - Python3 installation is required
