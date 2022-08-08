@@ -9,9 +9,9 @@
     "be:run": "node ./dist/server.js",
     "fe:watch": "npx webpack --watch",
     "fe:build": "npx webpack",
-    "start": "npm run fe:build && npm run be:build && npm run start"
+    "start": "npm run fe:build && npm run be:build && npm run be:run"
   },
-  "author": "",
+  "author": "Neli Harbuzava",
   "license": "ISC",
   "dependencies": {
     "@tensorflow/tfjs-node": "^3.19.0",

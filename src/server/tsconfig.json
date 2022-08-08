@@ -6,7 +6,9 @@
     "rootDir": "./",                             
     "strict": true,
     "moduleResolution": "node",
-    "esModuleInterop": true,                  
+    "esModuleInterop": true,
+    "skipLibCheck": true          
   },
-  "include": ["./server.ts"]
+  "include": ["./server.ts"],
+  "exclude": ["../../node_modules"]
 }
