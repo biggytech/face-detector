@@ -4,3 +4,4 @@ dist
 !dist/public/lib
 !dist/public/index.html
 !dist/public/style.css
+.env
