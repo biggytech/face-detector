@@ -1,5 +1,5 @@
 # Face Detector
-The app detects a gender and predicted age from a webcam stream.
+The app detects a gender and predicts age from a webcam stream.
 
 ## Notice
 This software uses [face-api.js](https://github.com/justadudewhohacks/face-api.js) library by Vincent Mühler.
