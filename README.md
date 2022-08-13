@@ -4,6 +4,9 @@ The app detects a gender and predicted age from a webcam stream.
 ## Notice
 This software uses [face-api.js](https://github.com/justadudewhohacks/face-api.js) library by Vincent Mühler.
 
+## Demo
+![Demo](./demo/1.png)
+
 ## Setting up the environment
 - Python3 installation is required
 - run `npm i`
