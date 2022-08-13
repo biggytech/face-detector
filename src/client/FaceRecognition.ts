@@ -37,35 +37,41 @@ class FaceRecognition {
         FaceRecognition.loadModels();
     }    
 
-    async recognizeFaces() {      
-        if(this.videoElement.paused || this.videoElement.ended || !FaceRecognition.isFaceDetectionModelLoaded) {
-            return setTimeout(() => {
-                this.recognizeFaces();
-              }, 1000);
-        }          
-      
-        const result = await faceapi.detectSingleFace(this.videoElement, this.options).withAgeAndGender();
-      
-        if (result) {          
-            const dims = faceapi.matchDimensions(this.overlayElement, this.videoElement, true);
-      
-            const resizedResult = faceapi.resizeResults(result, dims);
-            faceapi.draw.drawDetections(this.overlayElement, resizedResult);
-            const { age, gender, genderProbability } = resizedResult;      
+    async recognizeFaces() {   
+        try {
+            if(this.videoElement.paused || this.videoElement.ended || !FaceRecognition.isFaceDetectionModelLoaded) {
+                return setTimeout(() => {
+                    this.recognizeFaces();
+                  }, 1000);
+            }          
           
-            const interpolatedAge = this.interpolateAgePredictions(age);
-            new faceapi.draw.DrawTextField(
-                [
-                    `${faceapi.utils.round(interpolatedAge, 0)} years`,
-                    `${gender} (${faceapi.utils.round(genderProbability)})`
-                ],
-                result.detection.box.bottomLeft
-            ).draw(this.overlayElement);
-        } else {
-            console.error('Failed face recognition');
+            const result = await faceapi.detectSingleFace(this.videoElement, this.options).withAgeAndGender();
+          
+            if (result) {          
+                const dims = faceapi.matchDimensions(this.overlayElement, this.videoElement, true);
+          
+                const resizedResult = faceapi.resizeResults(result, dims);
+                faceapi.draw.drawDetections(this.overlayElement, resizedResult);
+                const { age, gender, genderProbability } = resizedResult;      
+              
+                const interpolatedAge = this.interpolateAgePredictions(age);
+                new faceapi.draw.DrawTextField(
+                    [
+                        `${faceapi.utils.round(interpolatedAge, 0)} years`,
+                        `${gender} (${faceapi.utils.round(genderProbability)})`
+                    ],
+                    result.detection.box.bottomLeft
+                ).draw(this.overlayElement);
+            } else {
+                console.log('Failed face recognition');
+            }
+          
+            setTimeout(() => this.recognizeFaces(), FaceRecognition.RECOGNITION_TIMEOUT_MS);
+        } catch(err) {
+            console.log(err);
+            await FaceRecognition.loadModels();
+            this.recognizeFaces();
         }
-      
-        setTimeout(() => this.recognizeFaces(), FaceRecognition.RECOGNITION_TIMEOUT_MS);
     }
 }
 
